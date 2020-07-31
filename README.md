@@ -23,16 +23,18 @@ Notes:
 
 - Verify that this didn't pull anything else out by `wc -l` on the input and output files, there should only be 1 line difference.
 
+---
 
 #### 2. GET ALL v19 HEADERS
 Accessions that will be used for comparison are in the RVDB v18 file. The first step is to pull them out of the headers from the fasta file.
 
-COMMAND | FILE OUTPUT
---------|-------------
-`grep ">" HIVE_C-RVDBv19.0_curated.fasta > v19headers_2.txt` | v19headers_2.txt
+COMMAND:
 
-Note: Can also use `^>` instead of `>`.
+  `grep ">" HIVE_C-RVDBv19.0_curated.fasta > v19headers_2.txt`
 
+Note: Can also use `^>` instead of `>` in the grep command.
+
+---
 
 #### 3. FORMAT CONVERSION
 Convert to accession numbers.
@@ -41,7 +43,29 @@ SCRIPT | INPUT FILE | OUTPUT FILE
 -------|------------|------------
 RVDB_Header_Accession_Reformatter.py | v19headers.txt | v19headers_formatted.txt
 
+---
 
 #### 4. SORT FILES
+Sort files for easier comparison.
 
 
+COMMANDS:
+<br>`sort VDB_v18_Accessions.txt > VDB_v18_Accessions_Sorted.txt`
+<br>`sort v19headers_formatted.txt > v19headers_formatted_Sorted.txt`
+
+---
+
+#### 5. COMPARISON
+Compare the list of accessions taken from the v18 table and v19 fasta file.
+
+COMMAND:
+<br>`git diff --color VDB_v18_Accessions_Sorted.txt v19headers_formatted_Sorted.txt | egrep '^.[[[:digit:]]+m\+' | less -R > v18_v19_diff_Sorted_condensed_colors.txt`
+
+<br><h6><i>&nbsp;&nbsp;&nbsp;NOTE: I moved this to my local machine to write code for the next step in an IDE and discovered that it doesn't like the color codes. This next command strips the colors out, if needed:</i></h6>
+
+<br>COMMAND:
+<br>`sed 's/\x1b\[[0-9;]*m//g' v18_v19_diff_Sorted_condensed_colors.txt > v16_v18_diff_Sorted_condensed_no_colors.txt`
+
+<br><h6><i>&nbsp;&nbsp;&nbsp;See the really great first answer at the below URL for more info: https://superuser.com/questions/380772/removing-ansi-color-codes-from-text-stream</i></h6>
+
+---
