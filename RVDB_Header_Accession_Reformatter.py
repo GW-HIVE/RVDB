@@ -14,5 +14,5 @@ with open('v19headers.txt','r') as inFile:
 					description = pattern.group(2)
 					print(gb, file=outFile)
 #					print('>'+gb+' '+description, file=outFile)
-					except:
+				except:
 					print('Couldn\'t find for:',line)
