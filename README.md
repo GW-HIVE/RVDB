@@ -75,7 +75,7 @@ COMMAND:
 
 #### 6. GET ALL GenBank INFO FOR THE NEW ENTRIES
 Switch to my local machine for this (server is having some trouble with ETE3).
-Gather all of the necessary GenBank info for any v18 accessions not already represented in the v16 table. Files are in the "merge" folder.
+Gather all of the necessary GenBank info for any v18 accessions not already represented in the v16 table. Files are in the "Update_[n]" folder (current n = 4).
 
 
 SCRIPT | INPUT FILE | OUTPUT FILES
@@ -86,7 +86,7 @@ SequenceRetriever20.py | v18_v19_diff_Sorted_condensed_no_colors.txt | annotatio
 
 
 Usage note: This script has to contact NCBI for data. The connection frequently drops, so it's built to be able to pick up where you left off. The error log is used to keep track of any errors along the way, and the progress log is used to keep track of where the script left off. There's a line in the script that's used as the starter location (line 56). The last line of the progress file is used as the number in this field. The associated files that were produced are also named with that starting number. For example, if the script leaves off at line 1176, then the next script will start at position 1176, and that value will be used for [n] in naming the three files, like:
-<br>"annotationTable_RVDB18_FullLineages_1176.tsv," "ErrorLog_1176.txt," and "progressLog_1176.txt."
+<br>"annotationTable_RVDB18_FullLineages_1176.tsv," "ErrorLog_1176.txt," and "progressLog_1176.txt." <strong>You will have to remove the header line from the input file.</strong>
 
 <h6><i>NOTE: There is also a portion that gives a progress indicator (the block starting at line 34 and then the block starting at line 207). When we started using the much smaller versions of this script I stopped using this because it might only take the script ~1 hour or so to run, so it's a lot less necessary than before. If you plan to use it for longer jobs, it might need a little tweaking to run proplery.</i></h6>
 
