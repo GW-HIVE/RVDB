@@ -11,7 +11,7 @@ NOTE: I've been spot checking the files in between, but several of the scripts c
 ---
 
 
-#### 1. GET ALL v18 ACCESSIONS
+#### 1. GET ALL ACCESSIONS FROM OLD DB (v18 here)
 RVDB_10June2020Update_Merged.tsv is the old RVDB 18.0 file. Take the gb column from this to get all of the accessions.
 
 SCRIPT | 	INPUT FILE | OUTPUT FILE
@@ -19,13 +19,14 @@ SCRIPT | 	INPUT FILE | OUTPUT FILE
 VDB_v18_AccessionGrabber.py | RVDB_10June2020Update_Merged.tsv | VDB_v18_Accessions.txt
 
 Notes:
+- Remember to invoke it with `python3`, not `python`!
 - The first line (column header) is excluded by looking for `=='gb'`
-
+- You'll have to update the file reference, it's hard coded (refers to previous project's folder to prevent duplicating the large file).
 - Verify that this didn't pull anything else out by `wc -l` on the input and output files, there should only be 1 line difference.
 
 ---
 
-#### 2. GET ALL v19 HEADERS
+#### 2. GET ALL NEW HEADERS (v19 here)
 Accessions that will be used for comparison are in the RVDB v18 file. The first step is to pull them out of the headers from the fasta file.
 
 COMMAND:
