@@ -5,6 +5,8 @@ The purpose of this workflow is to quickly update the RVDB Annotation Table in H
 
 In addition, one of our sponsors requested a full lineage be included in the table (GenBank accessions only include a partial lineage). This pipeline therefore has 2 objectives: 1. update the existing table with new accessions, and 2. update the "Lineage" column to full taxonomic lineages. Once complete, the new additions are appended to the existing table, and the file is renamed. Taxonomic lineage update can be done using a local copy of the database, and therefore contact with NCBI is not required, but users are advised to update the table first (included in this pipeline). Example file inputs/outputs are given at each step, in this case updating from v.18 to v.19.
 
+See [overview image](https://github.com/GW-HIVE/RVDB/blob/master/RVDB_Annotation_Workflow.png), but note that it's generalized (no specific file names).
+
 NOTE: I've been spot checking the files in between, but several of the scripts could be combined at this point.
 
 
