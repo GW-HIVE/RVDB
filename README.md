@@ -37,6 +37,9 @@ COMMAND:
 
 Note: Can also use `^>` instead of `>` in the grep command.
 
+9.24.2020:
+Note that as of RVDB20, header format is different (this is not mentioned in the release notes). Script had to be reformated to accomodate.
+
 ---
 
 #### 3. FORMAT CONVERSION
@@ -105,6 +108,11 @@ Revising the taxonomy lineages in the annotation table does not require contact 
 
 SCRIPT:
 `TaxDB_Updater.py`
+
+9.25.2020:
+Note that a problem was detected in the script that caused an error. A fix was detected here:
+https://groups.google.com/forum/embed/?place=forum/etetoolkit#!topic/etetoolkit/DZV09SQreKw
+(A backup copy of the `ncbiquery.py` script was created; for me they're located at C:\Users\keeneyjg\AppData\Local\Programs\Python\Python37\Lib\site-packages\ete3\ncbi_taxonomy)
 
 ---
 
