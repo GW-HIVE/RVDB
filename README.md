@@ -74,6 +74,12 @@ COMMAND:
 
 <br><h6><i>See the really great first answer at the below URL for more info: https://superuser.com/questions/380772/removing-ansi-color-codes-from-text-stream</i></h6>
 
+NOTE: The diff file pulled too much information, I only need the accessions. I don't remember why it was done like this, seems like makeshift solutions one on top of another. To pull only the accession out, I used this:
+`awk -F  "|" '{print $2}' diff_v20_v23_noColor.txt > v23Headers.txt`
+Then I removed the first line (headers) with this:
+`sed -i '1d' v23Headers.txt`
+This was the input for the python script.
+
 ---
 
 #### 6. GET ALL GenBank INFO FOR THE NEW ENTRIES
