@@ -1,4 +1,8 @@
 # RVDB
+<p align="center">
+  <img src="RVDB_Annotation_Workflow.png" height="500" title="Workflow.">
+</p>
+
 ##### Standard pipeline for updating RVDB in HIVE.
 
 The purpose of this workflow is to quickly update the RVDB Annotation Table in HIVE. The process of updating requires a connection to NCBI, which requires a pause at each query. Updating over 1.8 million lines in the table would therefore take around 100 hours, and because of the unstable connection to NCBI, requires the ability to track progress and manually restart at the last known position. In practice, this can take a month or more. Rather than updating the entire table, therefore, this pipeline is used to compare new additions to the table, and only retrive the content from NCBI for those accessions.
